@@ -12,7 +12,7 @@ public class Calculator1
         
     public Calculator1(String line)  
     {  
-        tokenizer = new StringTokenizer(line , "+-*/^=" , true);
+        tokenizer = new StringTokenizer(line , "+-*/^()=" , true);
         token = tokenizer.nextToken();  
     }  
 
@@ -20,12 +20,25 @@ public class Calculator1
     {  
         return Expression();  
     }  
+    
+    private double Parentheses() {
+    	double priorResult = 0;
+    	
+    	token = tokenizer.nextToken();
+    	priorResult = Expression();
+    	return priorResult;
+    	
+    }
      
     private double Primary()  
     {  
         double result;  
-       
-        if(token.equals("")) 
+        
+        if (token.equals("(")) 
+        {
+        	result = Parentheses();
+        }
+        else if(token.equals("")) 
         {  
             token = tokenizer.nextToken();  
             result = Expression();  
