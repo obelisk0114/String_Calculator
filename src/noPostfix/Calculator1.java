@@ -27,7 +27,6 @@ public class Calculator1
     	token = tokenizer.nextToken();
     	priorResult = Expression();
     	return priorResult;
-    	
     }
      
     private double Primary()  
