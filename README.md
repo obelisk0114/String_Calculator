@@ -27,7 +27,7 @@
 2. If we meet a value, put it in the stack.
 3. If we meet an operator, use it to operate with the last(top) two values in the stack.
 <pre>
-  The **last value** of the stack is **right hand side** and the **second last value** of the stack is **left hand side**.  </pre>
+  The <b>last value</b> of the stack is <b>right hand side</b> and the <b>second last value</b> of the stack is <b>left hand side</b>.  </pre>
 4. After operation, put the new value in the stack.
 5. Repeat step 2 to 4, until the end of the postfix notation.
 6. The only value in the stack is the solution.
