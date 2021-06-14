@@ -47,8 +47,8 @@ public class Calculator {
 				preserve.add(token);
 			}
 			else {
-				while ((preserve.getLast().equals("*") || preserve.getLast().equals("/")
-						|| preserve.getLast().equals("^")) 
+				while (!preserve.isEmpty() 
+						&& (preserve.getLast().equals("*") || preserve.getLast().equals("/") || preserve.getLast().equals("^")) 
 						&& !preserve.getLast().equals("(")) {
 					postfix += preserve.removeLast();
 					postfix += " ";
@@ -90,8 +90,14 @@ public class Calculator {
 			postfix += " ";
 		}
 		
-		token = tokenizer.nextToken();
-		convertPostfix();
+		if (tokenizer.hasMoreTokens()) {
+			token = tokenizer.nextToken();
+			convertPostfix();
+		}
+		else {
+			clearPreserve();
+			getPostfix();
+		}
 	}
 	
 	void clearPreserve() {

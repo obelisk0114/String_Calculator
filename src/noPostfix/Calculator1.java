@@ -39,7 +39,9 @@ public class Calculator1 {
 			result = Double.valueOf(token).doubleValue();
 		}
 
-		token = tokenizer.nextToken();
+		if (tokenizer.hasMoreTokens()) {
+			token = tokenizer.nextToken();
+		}
 		return result;
 	}
 
